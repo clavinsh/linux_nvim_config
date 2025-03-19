@@ -1,7 +1,7 @@
 return {
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
             {
                 "Saghen/blink.cmp"
             },
@@ -20,10 +20,10 @@ return {
         config = function()
             local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-            require("lspconfig").lua_ls.setup {capabilities}
+            require("lspconfig").lua_ls.setup { capabilities }
 
             require('lspconfig').csharp_ls.setup {}
-        end
+        end,
     }
 
 }
