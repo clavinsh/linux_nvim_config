@@ -23,7 +23,41 @@ return {
             require("lspconfig").lua_ls.setup { capabilities }
 
             require('lspconfig').csharp_ls.setup {}
+
+            require('lspconfig').texlab.setup {}
+
+            require('lspconfig').clangd.setup {
+                filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+            }
+
+            require('lspconfig').opencl_ls.setup {}
+
+            require('lspconfig').pylsp.setup {}
+
+            require('lspconfig').ts_ls.setup {}
+
+
+            require('lspconfig').rust_analyzer.setup {
+                capabilities = capabilities,
+                settings = {
+                    ["rust-analyzer"] = {
+                        imports = {
+                            granularity = {
+                                group = "module",
+                            },
+                            prefix = "self",
+                        },
+                        cargo = {
+                            buildScripts = {
+                                enable = true,
+                            },
+                        },
+                        procMacro = {
+                            enable = true
+                        },
+                    }
+                }
+            }
         end,
     }
-
 }
