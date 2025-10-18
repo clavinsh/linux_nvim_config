@@ -20,48 +20,44 @@ return {
         config = function()
             local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-            require("lspconfig").lua_ls.setup { capabilities }
+            vim.lsp.config('lua_ls', { capabilities = capabilities })
 
-            require('lspconfig').csharp_ls.setup {}
+            vim.lsp.config('clangd', { filetypes = { "c", "cpp", "objc", "objcpp", "cuda" } })
 
-            require('lspconfig').texlab.setup {}
-
-            require('lspconfig').clangd.setup {
-                filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-            }
-
-            require('lspconfig').opencl_ls.setup {}
-
-            require('lspconfig').pylsp.setup {}
-
-            require('lspconfig').ts_ls.setup {}
-
-            require('lspconfig').rust_analyzer.setup {
-                capabilities = capabilities,
-                settings = {
-                    ["rust-analyzer"] = {
-                        imports = {
-                            granularity = {
-                                group = "module",
+            vim.lsp.config('rust_analyzer',
+                {
+                    capabilities = capabilities,
+                    settings = {
+                        ["rust-analyzer"] = {
+                            imports = {
+                                granularity = {
+                                    group = "module",
+                                },
+                                prefix = "self",
                             },
-                            prefix = "self",
-                        },
-                        cargo = {
-                            buildScripts = {
-                                enable = true,
+                            cargo = {
+                                buildScripts = {
+                                    enable = true,
+                                },
                             },
-                        },
-                        procMacro = {
-                            enable = true
-                        },
+                            procMacro = {
+                                enable = true
+                            },
+                        }
                     }
-                }
-            }
+                })
 
-
-            require('lspconfig').basedpyright.setup {}
-
-
+            vim.lsp.enable({
+                'lua_ls',
+                'csharp_ls',
+                'texlab',
+                'clangd',
+                'opencl_ls',
+                'pylsp',
+                'ts_ls',
+                'rust_analyzer',
+                'basedpyright'
+            })
         end,
     }
 }
