@@ -1,3 +1,8 @@
+-- Disable vimtex in VSCode (use LaTeX Workshop extension instead)
+if vim.g.vscode then
+    return {}
+end
+
 return {
     "lervag/vimtex",
     lazy = false,

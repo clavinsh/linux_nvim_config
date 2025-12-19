@@ -1,3 +1,8 @@
+-- Disable Telescope in VSCode (use VSCode's native search)
+if vim.g.vscode then
+    return {}
+end
+
 return {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',

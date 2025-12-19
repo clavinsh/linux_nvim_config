@@ -1,3 +1,8 @@
+-- Disable Treesitter in VSCode (VSCode has its own syntax highlighting)
+if vim.g.vscode then
+    return {}
+end
+
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",

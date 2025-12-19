@@ -1,3 +1,8 @@
+-- Disable LSP in VSCode (VSCode has its own LSP)
+if vim.g.vscode then
+    return {}
+end
+
 return {
     {
         "neovim/nvim-lspconfig",

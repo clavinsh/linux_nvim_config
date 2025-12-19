@@ -1,3 +1,4 @@
+-- Hop works in VSCode, so we can keep these keybindings
 local hop = require('hop')
 local directions = require('hop.hint').HintDirection
 

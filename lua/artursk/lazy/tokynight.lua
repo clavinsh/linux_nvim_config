@@ -1,3 +1,8 @@
+-- Disable colorscheme in VSCode (uses VSCode theme)
+if vim.g.vscode then
+    return {}
+end
+
 return {
     "folke/tokyonight.nvim",
     lazy = false,

@@ -1,3 +1,8 @@
+-- Disable blink.cmp in VSCode (conflicts with IntelliSense)
+if vim.g.vscode then
+    return {}
+end
+
 return {
     {
         'saghen/blink.cmp',
