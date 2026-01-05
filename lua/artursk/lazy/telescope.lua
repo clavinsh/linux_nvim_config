@@ -1,5 +1,12 @@
--- Disable Telescope in VSCode (use VSCode's native search)
 if vim.g.vscode then
+    vim.keymap.set('n', '<leader>pf', function()
+        vim.fn.VSCodeNotify('workbench.action.quickOpen')
+    end, { desc = 'VSCode Quick Open (Find Files)' })
+
+    vim.keymap.set('n', '<leader>ps', function()
+        vim.fn.VSCodeNotify('workbench.action.findInFiles')
+    end, { desc = 'VSCode Find in Files (Grep)' })
+
     return {}
 end
 
